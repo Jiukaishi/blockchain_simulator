@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mine New Block</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #012169;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #012169;
+            margin-top: 20px;
+        }
+
+        h3 {
+            color: #012169;
+            margin-top: 20px;
+            text-align: left; /* Align text to the left */
+            margin-left: 115px; /* Add some margin on the left for better alignment */
+        }
+
+        p {
+            font-size: 14px; /* Smaller font size */
+            line-height: 1.4; /* Reduced line spacing */
+            text-align: left; /* Align text to the left */
+            margin-left: 115px; /* Add some margin on the left for better alignment */
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #012169;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mine New Block</h1>
+    <h2>Information of New Mined Block {{ status }}</h2>
+    <h3>Block Index: {{ index }}</h3>
+    <h3>Transactions:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.sender }}</td>
+                <td>{{ transaction.recipient }}</td>
+                <td>{{ transaction.amount }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>Proof: {{ proof }}</h3>
+    <h3>Previous Hash: {{ previous_hash }}</h3>
+</body>
+</html>

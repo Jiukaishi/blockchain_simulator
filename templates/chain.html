@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blockchain Display</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #012169;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #012169;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #fff;
+            color: #012169;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        ul li:nth-child(odd) {
+            background: #f9f9f9;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #012169;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blockchain Overview</h1>
+        <h2>Length of Chain </h2>
+        <ul>
+            <li>{{ response['length'] }}</li>
+        <ul>
+        <h2>Blocks in Chain </h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Transactions</th>
+                    <th>Timestamp</th>
+                    <th>Previous Hash</th>
+                    <th>Difficulty</th>
+                    <th>Nonce</th>
+                    <th>Merkle Hash</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for block in response['chain'] %}
+                <tr>
+                    {% for item in block %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

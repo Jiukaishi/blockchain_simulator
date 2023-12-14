@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Overview</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #012169;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #012169;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #012169;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blockchain Display</h1>
+
+    <h2>Our Block Chain</h2>
+
+    {% if replaced %}
+        <h3>Note: The chain has been replaced!</h3>
+    {% else %}
+        <h3>Note: The chain remains unchanged!</h3>
+    {% endif %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Transactions</th>
+                <th>Timestamp</th>
+                <th>Previous Hash</th>
+                <th>Nonce</th>
+                <th>Merkle Hash</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chain in chain_list %}
+            <tr>
+                {% for item in chain %}
+                    <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
